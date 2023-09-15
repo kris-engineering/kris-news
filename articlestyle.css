@@ -1,0 +1,52 @@
+body {
+    font-family: 'Helvetica', sans-serif;
+    background-color: #e1ad01;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Helvetica', sans-serif;
+}
+
+h2 {
+    font-family: 'Helvetica', sans-serif;
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+}
+
+h3, h4, h5, h6 {
+    font-family: 'Helvetica', sans-serif;
+    color: black;
+    font-size: 16px;
+}
+
+@media screen and (min-width: 768px) {
+    h1 {
+        font-size: 36px;
+        padding: 15px 0;
+    }
+}
+
+.content-container {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 0px;
+    margin: 5%;
+    overflow: auto;
+}
+
+article {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 16px;
+    color: black;
+    padding: 20px;
+    overflow: auto;
+}
