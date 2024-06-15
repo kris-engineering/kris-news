@@ -49,7 +49,7 @@ body > *:not(h1) {
 
 .articles-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* Mobile */
     gap: 20px;
     padding: 60px 20px 20px 20px;
     max-width: 1200px;
@@ -58,7 +58,14 @@ body > *:not(h1) {
 
 @media screen and (min-width: 768px) {
     .articles-grid {
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(3, 1fr); /* iPad */
+        padding-top: 80px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .articles-grid {
+        grid-template-columns: repeat(5, 1fr); /* Desktop */
         padding-top: 80px;
     }
 }
