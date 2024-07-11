@@ -1,127 +1,167 @@
-/* Body styling with background color */
-body {
+body, html {
+    margin: 0;
+    height: 100%;
     font-family: 'Helvetica', sans-serif;
     background-color: #ffdb88;
-    margin: 0;
-    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Default styling (Mobile-first) */
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #ffdb88;
+    position: relative;
+}
+
 h1 {
     font-family: 'Times New Roman', Times, serif;
+    letter-spacing: -2px;
     font-style: italic;
     color: #724f00;
-    background-color: #ffdb88;
-    position: fixed;
-    width: 100%;
+    font-size: 32px;
     text-align: center;
-    padding: 10px 0;
     margin: 0;
-    top: 0;
-    z-index: 1000;
-    font-size: 24px;
 }
 
-body > *:not(h1) {
-    margin-top: 60px;
+.articles-grid {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    align-content: space-between;
+    flex: 1; /* Ensure the content takes up available space */
 }
 
-/* Media query for larger screens (e.g., screens wider than 768px) */
-@media screen and (min-width: 768px) {
-    h1 {
-        font-size: 36px;
-        padding: 15px 0;
-    }
-
-    body > *:not(h1) {
-        margin-top: 80px;
-    }
+.article-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+    padding: 20px; /* Increase padding */
 }
 
 .article-button {
-    width: 60%;
+    width: 100%;
     height: auto;
     display: block;
     margin: 0 auto;
     border: none;
     cursor: pointer;
-}
-
-.articles-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Mobile */
-    gap: 20px;
-    padding: 60px 20px 20px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-@media screen and (min-width: 768px) {
-    .articles-grid {
-        grid-template-columns: repeat(3, 1fr); /* iPad */
-        padding-top: 80px;
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    .articles-grid {
-        grid-template-columns: repeat(5, 1fr); /* Desktop */
-        padding-top: 80px;
-    }
-}
-
-.article-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.article-title {
-    font-family: 'Times New Roman', Times, serif;
-    font-style: italic;
-    color: #724f00;
-    margin-top: 10px;
-    font-size: 16px;
-    transition: opacity 0.3s;
-    opacity: 1;
-    visibility: visible;
-}
-
-/* This class will be hidden initially and displayed when the image is hovered over */
-.overlay-text {
-    font-family: 'Times New Roman', Times, serif;
-    font-style: italic;
-    color: #724f00;
-    display: none;
-    opacity: 0;
-    font-size: 16px;
-    margin-top: 10px;
-    text-align: center;
-    transition: opacity 0.3s;
-    visibility: hidden;
-}
-
-.image-wrapper {
-    position: relative;
-    overflow: hidden;
-}
-
-/* When the image is hovered over, we want to apply grayscale and shrink it */
-.image-wrapper:hover .article-button {
-    filter: grayscale(100%);
-    transform: scale(0.95);
     transition: transform 0.3s, filter 0.3s;
 }
 
-/* When the image is hovered over, hide the title and show the "Read More..." text */
-.image-wrapper:hover .article-title {
-    opacity: 0;
-    visibility: hidden;
+.article-container:hover .article-button {
+    filter: grayscale(100%);
+    transform: scale(0.95);
 }
 
-.image-wrapper:hover .overlay-text {
+.article-container a {
+    color: black;
+    text-decoration: none;
+}
+
+.text-wrapper {
     display: block;
-    opacity: 1;
-    visibility: visible;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    height: 24px; 
+}
+
+.article-title, .overlay-text {
+    transition: opacity 0.3s;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    line-height: 24px; 
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: -1px; /* Increase kerning by 1px */
+    font-style: italic;
+    color: #724f00;
+    font-size: 24px;
+}
+
+.overlay-text {
+    visibility: hidden; /* Hidden by default */
+    opacity: 0; /* Fully transparent by default */
+}
+
+.article-container:hover .article-title {
+    visibility: hidden; /* Hide on hover */
+    opacity: 0; /* Fade out */
+}
+
+.article-container:hover .overlay-text {
+    visibility: visible; /* Show on hover */
+    opacity: 1; /* Fade in */
+}
+
+/* iPad */
+@media screen and (min-width: 768px) {
+    .articles-grid {
+        padding-top: 40px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+    .articles-grid {
+        padding-top: 40px;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: auto;
+    }
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #ffdb88;
+    position: relative;
+    flex-shrink: 0; /* Ensure the footer does not shrink */
+}
+
+.footer-text {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    color: #724f00;
+    font-size: 18px;
+    margin: 0;
+    letter-spacing: 2px; /* Increase kerning */
+}
+
+.footer-text a {
+    color: #724f00;
+    text-decoration: none;
+}
+
+/* Ensure the footer is aligned to the bottom */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.articles-grid {
+    flex: 1; /* This makes the navigation section take up available space */
+}
+
+footer {
+    flex-shrink: 0; /* Ensure the footer does not shrink */
 }

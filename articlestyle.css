@@ -3,11 +3,15 @@ body {
     background-color: #ffdb88;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 h1 {
     font-family: 'Times New Roman', Times, serif;
     font-style: italic;
+    letter-spacing: -2px;
     color: #724f00;
     width: 100%;
     text-align: center;
@@ -19,6 +23,7 @@ h1 {
 h2 {
     font-family: 'Times New Roman', Times, serif;
     font-style: italic;
+    letter-spacing: 0px;
     color: #724f00;
     font-size: 16px;
 }
@@ -43,6 +48,7 @@ h3, h4, h5, h6 {
     padding: 0px;
     margin: 5%;
     overflow: auto;
+    flex: 1; /* Ensure the content takes up available space */
 }
 
 article {
@@ -87,6 +93,7 @@ article {
     font-family: 'Times New Roman', Times, serif;
     font-style: italic;
     color: #724f00;
+    letter-spacing: -2px;
     margin-top: 10px;
     font-size: 16px;
     transition: opacity 0.3s;
@@ -99,6 +106,7 @@ article {
     font-family: 'Times New Roman', Times, serif;
     font-style: italic;
     color: #724f00;
+    letter-spacing: -2px;
     display: none;
     opacity: 0;
     font-size: 16px;
@@ -130,4 +138,89 @@ article {
     display: block;
     opacity: 1;
     visibility: visible;
+}
+
+/* Home button styling */
+.home-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    color: #724f00;
+    font-size: 24px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.home-text, .home-hover-text {
+    transition: opacity 0.3s;
+    display: block;
+    position: absolute;
+    line-height: 24px; /* Ensure consistent line height */
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: -2px;
+    font-style: italic;
+    color: #724f00;
+    font-size: 24px;
+    white-space: nowrap;
+}
+
+.home-hover-text {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.home-button:hover .home-text {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.home-button:hover .home-hover-text {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #ffdb88;
+    position: relative;
+    flex-shrink: 0; /* Ensure the footer does not shrink */
+}
+
+.footer-text {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    color: #724f00;
+    font-size: 18px;
+    margin: 0;
+    letter-spacing: 2px; /* Increase kerning */
+}
+
+.footer-text a {
+    color: #724f00;
+    text-decoration: none;
+}
+
+/* Ensure the footer is aligned to the bottom */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.content-container {
+    flex: 1; /* This makes the content section take up available space */
+}
+
+footer {
+    flex-shrink: 0; /* Ensure the footer does not shrink */
 }
